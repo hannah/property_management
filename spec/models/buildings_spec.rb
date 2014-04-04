@@ -8,4 +8,5 @@ describe Building do
   it { should validate_presence_of(:city) }
   it { should validate_presence_of(:state) }
   it { should ensure_inclusion_of(:state).in_array(Building::STATES)}
+  it { should ensure_inclusion_of(:owner).in_array(Owner.all.full_name)}
 end
