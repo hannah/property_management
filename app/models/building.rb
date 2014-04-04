@@ -8,4 +8,5 @@ class Building < ActiveRecord::Base
   validates :street_address, presence: true
   validates :city, presence: true
   validates :state, presence: true, inclusion: {in: STATES}
+  belongs_to :owner
 end
