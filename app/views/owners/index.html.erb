@@ -1,0 +1,7 @@
+<% @owners.each do |owner| %>
+  <div>
+    <h3><%= owner.first_name %> <%= owner.last_name %></h3>
+    <p><%= owner.email %></p>
+    <p><%= owner.company %></p>
+  </div>
+<% end %>
