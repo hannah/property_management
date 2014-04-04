@@ -24,4 +24,14 @@ feature 'record a new building', %Q{
     expect(page).to have_content("123 Sesame Street")
   end
 
+  scenario 'new invalid building is created' do
+    visit 'buildings/new'
+    fill_in 'Street address', with: ''
+    fill_in 'City', with: ''
+    fill_in 'State', with: ''
+
+    click_on 'Create Building'
+    expect(page).to have_content("can't be blank")
+  end
+
 end
