@@ -4,5 +4,6 @@ class Owner < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, format: {with: EMAIL_REGEX }
-  has_many :buildings
+
+  has_many :buildings, dependent: :nullify
 end
