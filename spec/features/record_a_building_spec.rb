@@ -21,7 +21,7 @@ feature 'record a new building', %Q{
     fill_in 'State', with: "Washington"
 
     click_on 'Create Building'
-    expect(page).to have_content("123 Sesame Street")
+    expect(page).to have_content("Building created successfully!")
   end
 
   scenario 'new invalid building is created' do

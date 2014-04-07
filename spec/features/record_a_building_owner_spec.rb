@@ -18,7 +18,7 @@ feature 'record a building owner', %Q{
     fill_in "Email", with: "big_bird@sesame.com"
 
     click_on 'Create Owner'
-    expect(page).to have_content("Big Bird")
+    expect(page).to have_content("Owner Created!")
   end
 
   scenario 'a new invalid owner is created' do
