@@ -9,6 +9,7 @@ class BuildingsController < ApplicationController
 
   def create
     @building = Building.new(building_params)
+
     if @building.save
       redirect_to buildings_path, notice: "Building created successfully!"
     else
@@ -18,6 +19,6 @@ class BuildingsController < ApplicationController
 
   private
   def building_params
-    params.require(:building).permit(:street_address, :city, :state, :description)
+    params.require(:building).permit(:street_address, :city, :state, :description, :owner_id)
   end
 end

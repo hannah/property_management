@@ -3,7 +3,7 @@
   <%= f.input :city %>
   <%= f.input :state %>
   <%= f.input :description %>
-  <%= f.input :owner %>
+  <%= f.association :owner, label_method: :first_name  %>
 
   <%= f.submit %>
 <% end %>

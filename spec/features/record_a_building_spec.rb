@@ -24,6 +24,23 @@ feature 'record a new building', %Q{
     expect(page).to have_content("Building created successfully!")
   end
 
+  context "when an owner is specified" do
+    scenario 'new valid house is associated with owner' do
+      owner = FactoryGirl.create(:owner)
+
+      visit 'buildings/new'
+
+      fill_in 'Street address', with: "123 Sesame Street"
+      fill_in 'City', with: "Anytown"
+      fill_in 'State', with: "Washington"
+      select owner.first_name, from: "Owner"
+      click_on 'Create Building'
+
+      expect(page).to have_content("Building created successfully!")
+      expect(Building.first.owner).to eq owner
+    end
+  end
+
   scenario 'new invalid building is created' do
     visit 'buildings/new'
     fill_in 'Street address', with: ''
